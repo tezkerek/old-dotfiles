@@ -1,0 +1,4 @@
+dzen2.font: xft:Inconsolata\\-g\ For\ Powerline:size=10
+dzen2.width: 1000
+dzen2.background: #000000
+dzen2.foreground: #ffffff

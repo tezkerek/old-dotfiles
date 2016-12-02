@@ -1,0 +1,21 @@
+# Increase volume
+"amixer set Master 2%+;~/.lib/dzen/volume"
+	XF86AudioRaiseVolume
+# Decrease volume
+"amixer set Master 2%-;~/.lib/dzen/volume"
+	XF86AudioLowerVolume
+# Toggle mute
+"amixer set Master toggle;~/.lib/dzen/volume"
+	XF86AudioMute
+
+# Increase brightness
+"xbacklight + 1"
+	XF86MonBrightnessUp
+
+# Decrease brightness
+"xbacklight - 1"
+	XF86MonBrightnessDown
+
+# Switch keyboard
+"xkb-switch | lemonbar"
+	ISO_Next_Group

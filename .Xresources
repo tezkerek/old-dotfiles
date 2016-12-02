@@ -1,0 +1,3 @@
+#include ".Xresources.d/rxvt-unicode"
+#include ".Xresources.d/dzen2"
+#include ".Xresources.d/rofi"

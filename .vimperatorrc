@@ -1,0 +1,11 @@
+" Mappings
+:nmap J gT
+:nmap K gt
+:nmap \>\> :tabmove +1<CR>
+:nmap \<\< :tabmove -1<CR>
+:noremap gi gi<End>
+
+" Options
+set animations
+set complete=lsS
+set showstatuslinks=2
