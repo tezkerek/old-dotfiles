@@ -52,7 +52,7 @@ set noexpandtab
 
 " Mappings
 " Sessions
-map <F2> :mksession! ~/.vimsess <CR>
+map <F2> :mksession! ~/.vimsess
 map <F3> :source ~/.vimsess <CR>
 " Substitute word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
