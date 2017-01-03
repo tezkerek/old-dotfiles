@@ -1,0 +1,2 @@
+#!/bin/bash
+echo M"%{O10} $(~/.config/lemonbar/mpd_status) %{O10}" > /tmp/statusbar.fifo

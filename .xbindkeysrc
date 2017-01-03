@@ -1,11 +1,11 @@
 # Increase volume
-"amixer set Master 2%+;~/.lib/dzen/volume"
+"amixer set Master 2%+;~/.config/lemonbar/volume_popup"
 	XF86AudioRaiseVolume
 # Decrease volume
-"amixer set Master 2%-;~/.lib/dzen/volume"
+"amixer set Master 2%-;~/.config/lemonbar/volume_popup"
 	XF86AudioLowerVolume
 # Toggle mute
-"amixer set Master toggle;~/.lib/dzen/volume"
+"amixer set Master toggle;~/.config/lemonbar/volume_popup"
 	XF86AudioMute
 
 # Increase brightness

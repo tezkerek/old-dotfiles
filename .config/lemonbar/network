@@ -1,0 +1,15 @@
+#!/bin/bash
+
+devices=(enp8s0 wlp7s0)
+STR="%{+u U#ff0000 O10} down%{O10 -u U-}"
+
+for DEV in "${devices[@]}"; do
+	STATE=$(cat "/sys/class/net/$DEV/operstate")
+	if [ "$STATE" == "up" ]; then
+		CON=true
+		STR="%{+u U#668800 O10} $DEV%{O10 -u U-}"
+		break
+	fi
+done
+
+echo $STR

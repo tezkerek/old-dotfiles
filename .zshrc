@@ -8,6 +8,9 @@ export EDITOR=/usr/bin/vim
 # Path to your oh-my-zsh installation.
 export ZSH=/home/andrei/.oh-my-zsh
 
+# Terminal
+export TERM="xterm-termite"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -88,7 +91,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias shit=sudo\ !!
+#
+# Vi mode
+#bindkey -v
+export KEYTIMEOUT=1
 
 autoload -Uz compinit
 compinit

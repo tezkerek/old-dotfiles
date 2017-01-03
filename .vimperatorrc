@@ -8,4 +8,4 @@
 " Options
 set animations
 set complete=lsS
-set showstatuslinks=2
+set showstatuslinks=3

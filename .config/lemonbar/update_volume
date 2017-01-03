@@ -1,0 +1,2 @@
+#!/bin/bash
+echo V"$(~/.config/lemonbar/volume)" > /tmp/statusbar.fifo

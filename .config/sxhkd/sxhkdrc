@@ -1,0 +1,76 @@
+# special keys
+# audio
+XF86Audio{Play,Prev,Next}
+	mpc {toggle,prev,next}; ~/.config/lemonbar/update_mpd_status
+
+# volume
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+	amixer set Master {toggle,2%+,2%-}; ~/.config/lemonbar/update_volume
+
+# screenshot
+{_,shift} + Print
+	scrot --delay 0.1 {_,--focused} "~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png" --exec "echo Screenshot saved | lemonbar -dp"
+
+# terminal
+super + shift + Return
+	termite
+
+# rofi
+super + p
+	rofi -show run
+
+# quit bspwm
+super + shift + q
+	bspc quit
+
+# reload sxhkd
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# close / kill window
+super + {_,shift} + x
+	bspc node -{c,k}
+
+# navigation
+super + {_,shift} + {h,j,k,l}
+	bspc node -{f,s} {west,next,prev,east}.local
+
+# preselect
+super + ctrl + {h,j,k,l}
+	bspc node -p \~{west,south,north,east}
+
+# move to preselection
+super + ctrl + Return
+	bspc node -n 'last.!automatic'
+
+# move to largest node
+super + Return
+	bspc node -s biggest.local
+
+# desktop
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} ^{1-9}
+
+# desktop layouts
+super + {m,t}
+	bspc desktop -l {monocle,tiled};bspc node -t tiled
+
+# rotate windows
+super + {_,shift} + r
+	bspc node @/ -R {90,270}
+
+# float window
+super + space
+	bspc node -t '~floating'
+
+# fullscreen window
+super + f
+	bspc node -t '~fullscreen'
+
+# private window
+super + s
+	bspc node -g private
+
+# adjust window gaps
+super + {minus,equal}
+	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))

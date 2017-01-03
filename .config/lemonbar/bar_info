@@ -1,0 +1,27 @@
+#!/bin/bash
+
+PANEL_FIFO="/tmp/statusbar.fifo"
+
+Battery() {
+	while true; do
+		echo $(~/.config/lemonbar/battery)
+		sleep 30
+	done > $PANEL_FIFO &
+}
+
+Connection(){
+	while true; do
+		echo $(~/.config/lemonbar/network)
+	done > $PANEL_FIFO &
+}
+
+Time(){
+	while true; do
+		echo "%{c O10} $(date +'%a %d %b %_H:%M:%S') %{O10}"
+	done > $PANEL_FIFO &
+}
+
+while true;do
+	echo "$(Battery)$(Connection)$(Time)"
+	sleep 1
+done

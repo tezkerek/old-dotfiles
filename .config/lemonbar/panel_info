@@ -1,0 +1,91 @@
+#!/bin/bash
+
+PANEL_FIFO="/tmp/statusbar.fifo"
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+# Time
+while true; do
+	#echo T"$(date +' %{c O10}  %_H:%M %{O10} %{r O10}  %a, %d %b %{O10}')"
+	echo T"$(date +' %{O10}  %_H:%M %{O10}')"
+	sleep 60
+done > "$PANEL_FIFO" &
+
+# Battery
+while true; do
+	CHARGING=$(cat /sys/class/power_supply/ACAD/online)
+	BATTERY=$(cat /sys/class/power_supply/BAT1/capacity)
+
+	if [ $CHARGING -eq 1 ]; then
+		ICON=""
+		COLOR="668800"
+	elif [ $BATTERY -lt 10 ]; then
+		ICON=""
+		COLOR="FF0000"
+	elif [ $BATTERY -lt 30 ]; then
+		ICON=""
+		COLOR="FF8800"
+	elif [ $BATTERY -lt 70 ]; then
+		ICON=""
+		COLOR="ddaa00"
+	elif [ $BATTERY -lt 90 ]; then
+		ICON=""
+		COLOR="668800"
+	else
+		ICON=""
+		COLOR="668800"
+	fi
+	echo B"%{+u U#$COLOR O10} $ICON $BATTERY% %{O10 -u U-}"
+	sleep 30
+done > "$PANEL_FIFO" &
+
+# Network
+while true; do
+	ICON=""
+
+	# Device states
+	if [ $(cat "/sys/class/net/enp8s0/operstate") == "up" ]; then
+		ICON=""
+		INFO=$(ip addr show enp8s0 | grep -Po "inet (\d+\.*){4}" | grep -Po "[\d+.]{4}" | tr -d '\n')
+	fi
+	if [ $(cat "/sys/class/net/wlp7s0/operstate") == "up" ]; then
+		ICON="$ICON"
+		INFO=$(wicd-cli --wireless --network-details | grep -P "Essid: \w+" | grep -Po "\w+" | grep -v "Essid")
+	fi
+
+	#
+	if [ "$ICON" == "" ]; then
+		echo N"%{+u U#ff0000 O10}$ICON down%{O10 -u U-}"
+	else
+		echo N"%{+u U#668800 O10}$ICON $INFO%{O10 -u U-}"
+	fi
+
+	sleep 60
+done > "$PANEL_FIFO" &
+
+# Volume
+echo V"$(~/.config/lemonbar/volume)" > "$PANEL_FIFO" &
+
+# MPD
+while true; do
+	echo M"%{O10} $(~/.config/lemonbar/mpd_status) %{O10}"
+	sleep 5
+done > "$PANEL_FIFO" &
+
+# Bspwm desktops
+bspc subscribe report > "$PANEL_FIFO" &
+
+# Get screen width
+PANEL_WIDTH=$(xrandr | grep '*' | grep -Po "\d+x" | grep -Po "\d+")
+
+cat "$PANEL_FIFO" | ~/.config/lemonbar/panel_print | lemonbar \
+	-g         "$PANEL_WIDTH"x30+0+0 \
+	-n         "top_panel" \
+	-B         "#ca282828" \
+	-F         "#ffffff" \
+	-u         4 \
+	-f         "Inconsolata" \
+	-f         "FontAwesome"
+
+wait

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+~/.config/lemonbar/bar_info | lemonbar \
+	-g         2560x30+0+0 \
+	-B         "#00000000" \
+	-F         "#ffffff" \
+	-u         4 \
+	-f         "Inconsolata" \
+	-f         "FontAwesome" \
+	-d
+
+wait

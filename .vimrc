@@ -11,14 +11,18 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-characterize'
-Plugin 'nono/jquery.vim'
 Plugin 'wincent/command-t'
 Plugin 'scrooloose/syntastic'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Syntax
+Plugin 'kovetskiy/sxhkd-vim'
+Plugin 'lilydjwg/colorizer'
 Plugin 'walm/jshint.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'lilydjwg/colorizer'
+Plugin 'nono/jquery.vim'
 
 " Colorschemes
 Plugin 'sjl/badwolf'
@@ -100,8 +104,11 @@ set smartcase
 set incsearch
 set cursorline
 set wildignore+=lib,generated
+set showcmd
+set scrolloff=5
 
 " Colorscheme
 let g:gruvbox_italic = 1
 set background=dark
-:colorscheme gruvbox
+set t_ut=
+colorscheme gruvbox

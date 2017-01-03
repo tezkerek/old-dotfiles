@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DEVSTATE=$(amixer get Master | grep -Po "\b(on|off)\b" )
+
+ICON=""
+COLOR="#668800"
+
+if [ $DEVSTATE == "off" ]; then
+	ICON=""
+	COLOR="#FF0000"
+fi
+
+VOL=$( amixer get Master | grep -Po "\d+%" )
+
+echo "%{+u U$COLOR O10} $ICON $VOL %{O10 -u U-}"

@@ -24,9 +24,9 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-if [ -f "$userbindkeys" ]; then
-	xbindkeys -p
-fi
+# if [ -f "$userbindkeys" ]; then
+# 	xbindkeys -p
+# fi
 
 # start some nice programs
 

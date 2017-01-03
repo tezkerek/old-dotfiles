@@ -3,9 +3,9 @@
 ! "Window opacity" Set from: Default
 ! rofi.opacity:                        100
 ! "Window width" Set from: Default
-! rofi.width:                          50
+  rofi.width:                          30
 ! "Number of lines" Set from: Default
-! rofi.lines:                          15
+  rofi.lines:                          10
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
@@ -19,11 +19,11 @@
 ! "Color scheme window" Set from: Default
   rofi.color-window:                   #444444,#98a81a
 ! "Border width" Set from: Default
-! rofi.bw:                             1
+  rofi.bw:                             0
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
-! rofi.padding:                        5
+  rofi.padding:                        0
 ! "Y-offset relative to location" Set from: Default
 ! rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: Default
@@ -79,11 +79,11 @@
 ! "Separator style (none, dash, solid)" Set from: Default
 ! rofi.separator-style:                dash
 ! "Hide scroll-bar" Set from: Default
-! rofi.hide-scrollbar:                 false
+  rofi.hide-scrollbar:                 true
 ! "Fullscreen" Set from: Default
 ! rofi.fullscreen:                     false
 ! "Fake transparency" Set from: Default
-! rofi.fake-transparency:              false
+! rofi.fake-transparency:              true
 ! "DPI" Set from: Default
 ! rofi.dpi:                            -1
 ! "Threads to use for string matching" Set from: Default
