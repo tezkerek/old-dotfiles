@@ -7,6 +7,10 @@ XF86Audio{Play,Prev,Next}
 XF86Audio{Mute,RaiseVolume,LowerVolume}
 	amixer set Master {toggle,2%+,2%-}; ~/.config/lemonbar/update_volume
 
+# brightness
+XF86MonBrightness{Up,Down}
+	xbacklight {+,-} 1
+
 # screenshot
 {_,shift} + Print
 	scrot --delay 0.1 {_,--focused} "~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png" --exec "echo Screenshot saved | lemonbar -dp"
@@ -21,7 +25,7 @@ super + p
 
 # quit bspwm
 super + shift + q
-	bspc quit
+	bspc quit; pkill panel_info;pkill panel_print;
 
 # reload sxhkd
 super + shift + Escape
