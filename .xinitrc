@@ -40,10 +40,10 @@ fi
 # Cursor
 xsetroot -cursor_name left_ptr
 
+# Java graphics support
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 exec bspwm
 #exec xmonad
 #exec ~/.bin/startdwm
 #exec ~/.bin/dwmbar &
-
-exec urxvtd &
-exec urxvt
