@@ -51,7 +51,7 @@ while true; do
 	fi
 	if [ $(cat "/sys/class/net/wlp7s0/operstate") == "up" ]; then
 		ICON="$ICON"
-		INFO=$(wicd-cli --wireless --network-details | grep -P "Essid: \w+" | grep -Po "\w+" | grep -v "Essid")
+		INFO=$(wicd-cli --wireless --network-details | awk '/Essid: / {print $2}')
 	fi
 
 	#
