@@ -3,21 +3,62 @@
 font = Inconsolata 13
 #font = Nimbus Mono Bold 12
 
+#[colors]
+#background = rgba(40, 40, 40, 0.8)
+#color0 =                 #073642
+#color8 =                 #282828
+#color1 =                 #cc241d
+#color9 =                 #d65d0e
+#color2 =                 #98971a
+#color10 =                #586e75
+#color3 =                 #d79921
+#color11 =                #657b83
+#color4 =                 #458588
+#color12 =                #ebdbb2
+#color5 =                 #d3869b
+#color13 =                #b16286
+#color6 =                 #83a598
+#color14 =                #a89984
+#color7 =                 #eee8d5
+#color15 =                #fdf6e3
+
 [colors]
-background = rgba(40, 40, 40, 0.8)
-color0 =                 #073642
-color8 =                 #282828
-color1 =                 #cc241d
-color9 =                 #d65d0e
-color2 =                 #98971a
-color10 =                #586e75
-color3 =                 #d79921
-color11 =                #657b83
-color4 =                 #458588
-color12 =                #ebdbb2
-color5 =                 #d3869b
-color13 =                #b16286
-color6 =                 #83a598
-color14 =                #a89984
-color7 =                 #eee8d5
-color15 =                #fdf6e3
+
+# special
+foreground      = #d8d8d8
+foreground_bold = #d8d8d8
+#cursor          = #798494
+background      = rgba(16, 17, 18, 0.7)
+
+# black
+color0  = #101112
+color8  = #586270
+
+# red
+color1  = #c48d62
+color9  = #b27b78
+
+# green
+color2  = #99ae63
+color10 = #282c33
+
+# yellow
+color3  = #d8c27a
+color11 = #383e47
+
+# blue
+color4  = #7495b6
+color12 = #798494
+
+# magenta
+color5  = #b59cd8
+color13 = #d8d8d8
+
+# cyan
+color6  = #8dc9c3
+color14 = #cc99b3
+
+# white
+color7  = #bcc5d1
+color15 = #fdfeff
+
