@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Start sxhkd if not running
 if [ ! $(pgrep sxhkd) != "" ]; then
@@ -18,28 +18,33 @@ bspc config gapless_monocle on
 bspc config single_monocle on
 bspc config remove_disabled_monitors on
 bspc config merge_overlapping_monitors on
-
-bspc config external_rules_command ~/.config/bspwm/rules
-
-# Window rules
+#
+#bspc config external_rules_command ~/.config/bspwm/rules
+#
+## Window rules
 #bspc rule -a "Firefox" desktop=^1 private=on
 bspc rule -a "fontforge" state=floating
 bspc rule -a "feh" state=floating
-
-# Desktops
+bspc rule -a "Termite":"scratchpad" sticky=on
+#
+## Desktops
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 #bspc monitor eDP1 -d I II III IV V VI VII VIII IX
-
-# Monitor
+#
+## Monitor
 MONITOR=$(xrandr | grep "HDMI1" | grep -Po "[dis]*connected")
 if [ "$MONITOR" == "connected" ]; then
-	echo bad;
 	xrandr --output eDP1 --off
 fi
-
-# Wallpaper
-#feh --bg-center --no-xinerama ~/Pictures/Wallpapers/hawk1080.png
+#
+## Wallpaper
 ~/.fehbg
-
-#yabar &
-~/.config/lemonbar/panel_info
+#
+## Compton
+#compton &
+#
+## Redshift
+redshift &
+#
+## Panel
+~/.config/lemonbar/panel_info &
