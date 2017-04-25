@@ -1,25 +1,25 @@
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
 ! "Window opacity" Set from: Default
-! rofi.opacity:                        100
+ rofi.opacity:                        80
 ! "Window width" Set from: Default
-  rofi.width:                          30
+  rofi.width:                          20
 ! "Number of lines" Set from: Default
   rofi.lines:                          10
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
-  rofi.font:                           Inconsolata 12
+  rofi.font:                           Inconsolata 13
 ! "Color scheme for normal row" Set from: Default
-  rofi.color-normal:                   #444444,#98a81a,#444444,#98a81a,#ffffff
+  rofi.color-normal:                   #444444,#98a81a,#444444,#dc322f,#ffffff
 ! "Color scheme for urgent row" Set from: Default
   rofi.color-urgent:                   #444444,#dc322f,#eee8d5,#dc322f,#444444
 ! "Color scheme for active row" Set from: Default
   rofi.color-active:                   #444444,#268bd2,#eee8d5,#268bd2,#444444
 ! "Color scheme window" Set from: Default
-  rofi.color-window:                   #444444,#98a81a
+  rofi.color-window:                   #444444,#98a81a, #268bd2
 ! "Border width" Set from: Default
-  rofi.bw:                             0
+  rofi.bw:                             1
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
@@ -53,9 +53,9 @@
 ! "Cycle through the results list" Set from: Default
 ! rofi.cycle:                          true
 ! "Enable sidebar-mode" Set from: Default
-! rofi.sidebar-mode:                   false
+ rofi.sidebar-mode:                   true
 ! "Row height (in chars)" Set from: Default
-! rofi.eh:                             1
+ rofi.eh:                             1
 ! "Enable auto select mode" Set from: Default
 ! rofi.auto-select:                    false
 ! "Parse hosts file for ssh mode" Set from: Default
@@ -73,17 +73,17 @@
 ! "Monitor id to show on" Set from: Default
 ! rofi.m:                              -1
 ! "Margin between rows" Set from: Default
-! rofi.line-margin:                    2
+ rofi.line-margin:                    5
 ! "Pre-set filter" Set from: Default
 ! rofi.filter:                         
 ! "Separator style (none, dash, solid)" Set from: Default
-! rofi.separator-style:                dash
+ rofi.separator-style:                none
 ! "Hide scroll-bar" Set from: Default
   rofi.hide-scrollbar:                 true
 ! "Fullscreen" Set from: Default
-! rofi.fullscreen:                     false
+ rofi.fullscreen:                     false
 ! "Fake transparency" Set from: Default
-! rofi.fake-transparency:              true
+ rofi.fake-transparency:              false
 ! "DPI" Set from: Default
 ! rofi.dpi:                            -1
 ! "Threads to use for string matching" Set from: Default
