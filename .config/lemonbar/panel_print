@@ -37,7 +37,7 @@ while read -r line; do
 				shift
 			done
 
-			desktops="$PAD${desktops}$PAD"
+			desktops="$PAD%{T1}${desktops}%{T-}$PAD"
 			;;
 		T*)
 			# Time

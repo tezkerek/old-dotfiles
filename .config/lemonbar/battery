@@ -1,25 +1,25 @@
 #!/bin/bash
 
-STATUS=$(cat /sys/class/power_supply/ACAD/online)
-BAT=$(cat /sys/class/power_supply/BAT1/capacity)
+CHARGING=$(cat /sys/class/power_supply/ACAD/online)
+BATTERY=$(cat /sys/class/power_supply/BAT1/capacity)
 
-if [ $STATUS -eq 1 ]; then
+if [ $CHARGING -eq 1 ]; then
 	ICON=""
 	COLOR="668800"
-elif [ $BAT -lt 10 ]; then
+elif [ $BATTERY -lt 10 ]; then
 	ICON=""
 	COLOR="FF0000"
-elif [ $BAT -lt 30 ]; then
+elif [ $BATTERY -lt 30 ]; then
 	ICON=""
 	COLOR="FF8800"
-elif [ $BAT -lt 70 ]; then
+elif [ $BATTERY -lt 70 ]; then
 	ICON=""
 	COLOR="ddaa00"
-elif [ $BAT -lt 90 ]; then
+elif [ $BATTERY -lt 90 ]; then
 	ICON=""
 	COLOR="668800"
 else
 	ICON=""
 	COLOR="668800"
 fi
-echo "%{+u U#$COLOR O10} $ICON $BAT% %{O10 -u U-}"
+echo "%{+u U#$COLOR O10} $ICON $BATTERY% %{O10 -u U-}"

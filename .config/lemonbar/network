@@ -1,15 +1,22 @@
 #!/bin/bash
+ICON=""
 
-devices=(enp8s0 wlp7s0)
-STR="%{+u U#ff0000 O10} down%{O10 -u U-}"
+# Device states
+# Ethernet
+if [ $(cat "/sys/class/net/enp8s0/operstate") == "up" ]; then
+	ICON=""
+	INFO=$(ip addr show enp8s0 | grep -Po "inet (\d+\.*){4}" | grep -Po "[\d+.]{4}" | tr -d '\n')
+fi
 
-for DEV in "${devices[@]}"; do
-	STATE=$(cat "/sys/class/net/$DEV/operstate")
-	if [ "$STATE" == "up" ]; then
-		CON=true
-		STR="%{+u U#668800 O10} $DEV%{O10 -u U-}"
-		break
-	fi
-done
+# Wireless
+if [ $(cat "/sys/class/net/wlp7s0/operstate") == "up" ]; then
+	ICON="$ICON"
+	INFO=$(nmcli device show wlp7s0 | awk '/GENERAL.CONNECTION:/ {print $2}')
+fi
 
-echo $STR
+# Format
+if [ "$ICON" == "" ]; then
+	echo "%{+u U#ff0000 O10}down%{O10 -u U-}"
+else
+	echo "%{+u U#668800 O10}$ICON $INFO%{O10 -u U-}"
+fi
