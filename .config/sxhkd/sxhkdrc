@@ -2,10 +2,14 @@
 # audio
 XF86Audio{Play,Prev,Next}
 	mpc {toggle,prev,next}; ~/.config/lemonbar/update_mpd_status
+super + {F1,F2,F3}
+	mpc {toggle,prev,next}; ~/.config/lemonbar/update_mpd_status
 
 # volume
-XF86Audio{Mute,RaiseVolume,LowerVolume}
-	amixer set Master {toggle,2%+,2%-}; ~/.config/lemonbar/update_volume
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	amixer set Master {2%+,2%-,toggle}; ~/.config/lemonbar/update_volume
+super + {F4,F5,F6}
+	amixer set Master {2%+,2%-,toggle}; ~/.config/lemonbar/update_volume
 
 # brightness
 XF86MonBrightness{Up,Down}
@@ -13,15 +17,23 @@ XF86MonBrightness{Up,Down}
 
 # screenshot
 {_,shift} + Print
-	scrot --delay 0.1 {_,--focused} "~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png" --exec "echo Screenshot saved | lemonbar -dp"
+	scrot --delay 0.1 {_,--focused} --exec 'mv $f ~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png'
 
 # terminal
 super + shift + Return
 	termite
 
-# rofi
+# scratchpad
+super + Return
+	~/.bin/scratchpad
+
+# rofi run
 super + p
-	rofi -show run
+	rofi -show run -run-list-command ". ~/.bin/list_alias" -run-command "zsh -i -c '\{cmd\}'"
+
+# rofi window switcher
+super + w
+	rofi -show window
 
 # quit bspwm
 super + shift + q
@@ -48,7 +60,7 @@ super + ctrl + Return
 	bspc node -n 'last.!automatic'
 
 # move to largest node
-super + Return
+super + g
 	bspc node -s biggest.local
 
 # desktop
@@ -78,3 +90,5 @@ super + s
 # adjust window gaps
 super + {minus,equal}
 	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))
+super + plus
+	bspc config window_gap 0
