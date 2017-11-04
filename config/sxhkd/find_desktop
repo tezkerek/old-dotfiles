@@ -1,0 +1,14 @@
+#!/bin/zsh
+mon=$1
+desk=$2
+currdesk=$(bspc query --names -D -d focused)
+
+moncount=$(bspc query -M | wc -l)
+monindex=$(bspc query --names -M | grep -n $mon | cut -d ':' -f 1)
+
+nextdesk=$(( $desk + 9 * ($monindex - 1) ))
+
+#if [[ $nextdesk == $currdesk ]]; then
+#	nextdesk=
+
+echo $nextdesk

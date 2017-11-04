@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function get_headphones() {
+	(amixer -c 0 cget numid=13; amixer -c 1 cget numid=13) 2> /dev/null | awk -F "=" 'NR == 3 {print $2}'
+}
+
+MUTED=$( pamixer --get-mute )
+
+if [[ $(get_headphones) == "on" ]]; then ICON=""; else ICON=""; fi
+COLOR="#668800"
+
+if [ $MUTED == "true" ]; then
+	ICON=""
+	COLOR="#FF0000"
+fi
+
+VOL=$( pamixer --get-volume )
+
+#echo "%{F$COLOR}$ICON $VOL%{F-}"
+echo "$ICON $VOL"

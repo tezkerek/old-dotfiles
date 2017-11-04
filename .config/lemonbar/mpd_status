@@ -1,5 +1,0 @@
-#!/bin/bash
-if pgrep mpd 1> /dev/null; then
-	[ $(mpc status | grep -Po "\[(playing|paused)\]") == "[playing]" ] && ICON="" || ICON=""
-	echo "$ICON $(mpc current)"
-fi 2>/dev/null

@@ -46,12 +46,5 @@ xset r rate 500 25
 # Java graphics support
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Monitor
-MONITOR=$(xrandr | grep "HDMI-1" | grep -Po "[dis]*connected")
-if [ "$MONITOR" == "connected" ]; then
-	xrandr --output eDP-1 --off
-	xset -dpms
-fi
-
 # Window manager
-exec bspwm
+exec bspwm 2>&1 bspwm.log

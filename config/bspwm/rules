@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+id=$1
+class=$2
+instance=$3
+
+wm_name=$(xprop -id $id WM_NAME | grep -Po "\".*\"")
+
+if [ "$class" == "Firefox" ]; then
+	case $wm_name in
+		*"- Vimperator"*)
+			echo "private=on desktop=^1"
+			;;
+		"WhatsApp"*)
+			echo "desktop=^5"
+			;;
+	esac
+elif [ "$class" == "Termite" ]; then
+	echo ""
+fi
+
+#echo $* > /tmp/extrules
