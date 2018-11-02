@@ -2,4 +2,4 @@
 #include ".Xresources.d/dzen2"
 !#include ".Xresources.d/rofi"
 
-!Xft.dpi: 111
+!Xft.dpi: 141

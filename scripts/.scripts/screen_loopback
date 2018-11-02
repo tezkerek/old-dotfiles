@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+# $1 is target desktop (default 2)
+#local TARGET_DESKTOPS=${1-2}
+
+ffmpeg -f x11grab -r 30 -s 2560x1080 -i :0.0+1920,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -vf 'scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1' -f v4l2 /dev/video2 &
+#local PROC_ID=$!
+
+# Pause ffmpeg when we switch desktops
+#while true; do
+
+# Kill ffmpeg on exit
+trap "kill 0" INT EXIT
+
+wait

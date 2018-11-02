@@ -32,7 +32,7 @@ acpi_listen > $PANEL_FIFO &
 #	echo M"%{O10} $("$(dirname $0)"/mpd_status) %{O10}"
 #	sleep 5
 #done > $PANEL_FIFO &
-mpc idleloop > $PANEL_FIFO &
+#mpc idleloop > $PANEL_FIFO &
 
 # Bspwm desktops
 bspc subscribe report > $PANEL_FIFO &

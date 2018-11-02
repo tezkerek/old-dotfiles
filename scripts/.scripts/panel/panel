@@ -1,13 +1,13 @@
 #!/bin/zsh
 
 < $PANEL_FIFO $PANEL_DIR/panel_print | lemonbar \
-	-g         "x30" \
-	-n         "top_panel" \
-	-B         "#282828" \
-	-F         "#979daa" \
-	-u         0 \
-	-f         "Droid Sans Mono:size=10" \
-	-f         "FontAwesome" \
-	-f         "PowerlineSymbols\-big"
-	#-f         "ypn envypn:pixelsize=16" \
-wait
+    -g         "x30" \
+    -n         "top_panel" \
+    -B         "#282828" \
+    -F         "#dddddd" \
+    -u         0 \
+    -f         "ypn envypn:pixelsize=16" \
+    -f         "FontAwesome:size=10" \
+    #-f         "PowerlineSymbols\-big"
+    #-f         "Droid Sans Mono:size=10" \
+        wait

@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+xrandr | grep -q 'HDMI-1 connected'
+
+exit $?

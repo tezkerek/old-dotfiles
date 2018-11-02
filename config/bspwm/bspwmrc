@@ -2,7 +2,7 @@
 
 # Start sxhkd if not running
 if [ ! $(pgrep sxhkd) != "" ]; then
-	sxhkd & #> $HOME/.config/sxhkd/log
+    sxhkd & #> $HOME/.config/sxhkd/log
 fi
 #urxvtd &
 
@@ -26,13 +26,13 @@ bspc config merge_overlapping_monitors on
 bspc config initial_polarity second_child
 
 #
-#bspc config external_rules_command ~/.config/bspwm/rules
+bspc config external_rules_command $HOME/.config/bspwm/rules
 #
 ## Window rules
 #bspc rule -a "Firefox" desktop=^1 private=on
 bspc rule -a "fontforge" state=floating
 bspc rule -a "feh" state=floating
-bspc rule -a '*':"scratchpad" sticky=on state=floating
+bspc rule -a "*":'scratchpad' sticky=on state=floating
 bspc rule -a "jetbrains-studio" desktop=focused:^2
 bspc rule -a "jetbrains-phpstorm" desktop=focused:^2
 bspc rule -a "discord" desktop=focused:^5
@@ -41,7 +41,7 @@ bspc rule -a "Zathura" state=tiled
 
 # Monitor
 xrandr --output HDMI-1 --auto --primary --preferred \
-	--output eDP-1 --auto --left-of HDMI-1
+    --output eDP-1 --auto --left-of HDMI-1
 
 # Desktops
 bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
@@ -55,7 +55,8 @@ bspc monitor --focus HDMI-1
 #fi
 
 # Wallpaper
-~/.fehbg
+#~/.fehbg
+nitrogen --restore &
 
 # Compton
 compton &
@@ -69,3 +70,10 @@ urxvtd &
 $PANEL_DIR/panel_info &
 sleep 1
 $PANEL_DIR/panel &
+
+# Stalonetray and nm-applet
+# nm-applet &
+# if $HOME/.scripts/hdmi_connected
+#     then stalonetray --geometry 1x1+4000+0
+#     else stalonetray --geometry 1x1+1500+0
+# fi

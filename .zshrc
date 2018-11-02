@@ -1,23 +1,14 @@
-export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
-
-export EDITOR=/usr/bin/nvim
-
-# Less options
-export LESS=iMRj5
-
-# Path to your oh-my-zsh installation.
-export ZSH=/home/andrei/.oh-my-zsh
-
-# Cheat
-export CHEATCOLORS=true
-
-export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
-export ANDROID_HOME=$HOME/Android/Sdk/
+source $HOME/.zsh_env
 
 # Virtual Env
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/devel
 source /usr/bin/virtualenvwrapper.sh
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -91,6 +82,7 @@ source "$HOME/.zsh_alias"
 bindkey -v
 export KEYTIMEOUT=1
 
+# Bindings
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[OA" history-beginning-search-backward
 bindkey "^P"   up-line-or-history

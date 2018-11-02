@@ -1,2 +1,2 @@
 #!/bin/zsh
-alias | awk -F '=' '{print $1}'
+alias | awk -F '[ =]' '{print $1}'
